@@ -1,45 +1,35 @@
 body {
-  font-family: sans-serif;
-  background: #f0f0f0;
-  padding: 2rem;
+  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 1rem;
+  background-color: #f7f7f7;
 }
 
 .container {
   max-width: 800px;
   margin: auto;
-  background: #fff;
+  background: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+input {
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 8px;
+  width: 200px;
 }
 
-.book-form {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.book-form input {
-  flex: 1;
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-
-.book-form button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  color: white;
   cursor: pointer;
 }
 
-.graph-container {
-  height: 500px;
-  margin-top: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+button:hover {
+  background-color: #0056b3;
 }
