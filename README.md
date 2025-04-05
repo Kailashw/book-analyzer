@@ -95,7 +95,14 @@ VITE_API_BACKEND_URL=https://your-backend.fly.dev
 
 
 ### 📷 Preview
+- Normal input
+<img width="899" alt="Screenshot 2025-04-05 at 6 36 38 AM" src="https://github.com/user-attachments/assets/c6d9ae2b-911d-4b60-ad56-d86b637a9e61" />
 
+- Error States
+<img width="905" alt="Screenshot 2025-04-05 at 6 37 07 AM" src="https://github.com/user-attachments/assets/386ca2ac-a784-4c5e-8564-e42aab6a44c4" />
+
+- Analyzed text sith graph
+- 
 
 ### 🧠 Future Enhancements
 - Show interaction weights and sentiment with color/thickness
