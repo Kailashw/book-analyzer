@@ -1,0 +1,45 @@
+body {
+  font-family: sans-serif;
+  background: #f0f0f0;
+  padding: 2rem;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.book-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.book-form input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.book-form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.graph-container {
+  height: 500px;
+  margin-top: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
