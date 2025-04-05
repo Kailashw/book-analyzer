@@ -60,6 +60,8 @@ def analyze_book(book_id: int):
     )
 
     try:
-        return json.loads(response.choices[0].message.content.strip())
+        content = response.choices[0].message.content
+        parsed = eval(content)
+        return parsed #json.loads(response.choices[0].message.content.strip())
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"JSON parsing failed: {str(e)}")

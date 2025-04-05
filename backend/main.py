@@ -7,8 +7,8 @@ from analysis import analyze_book
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Dev only
-    # allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -24,12 +24,13 @@ def get_book_text(book_id: int):
     return JSONResponse(content={"book_id": book_id, "text": text})
 
 @app.get("/analyze/{book_id}")
-async def analyze(book_id: int):
+def analyze(book_id: int):
     try:
         result = analyze_book(book_id)
         return result
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"[ERROR] Failed to analyze book {book_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 @app.get("/health")
 def health():
