@@ -35,15 +35,11 @@ def analyze_book(book_id: int):
         "content": (
             "You are a helpful assistant. Extract all characters from a book and identify their interactions. "
             "Also include 1–2 key quotes per interaction with brief sentiment labels (positive, negative, neutral). "
-            "Return strictly JSON:\n\n"
-            "{\n"
-            '  "nodes": [{"id": "Character1"}, {"id": "Character2"}],\n'
-            '  "edges": [{"source": "A", "target": "B", "weight": 3, "quotes": ["..."], "sentiment": "positive"}]\n'
-            "}\n"
-            "Do not include any explanation or markdown."
+            "Return strictly valid JSON:\n\n"
+            '{ "nodes": [{"id": "Character1"}], "edges": [{"source": "A", "target": "B", "weight": 3, "quotes": ["..."], "sentiment": "positive"}] }\n'
+            "No explanations. No markdown. No code fences."
         )
     }
-
 
     user_message = {
         "role": "user",
@@ -59,9 +55,21 @@ def analyze_book(book_id: int):
         stream=False,
     )
 
+    raw_content = response.choices[0].message.content or ""
+    print(f"\n[DEBUG] Raw LLM output:\n{raw_content}\n")
+
+    cleaned = (
+        raw_content
+        .strip()
+        .removeprefix("```json")
+        .removeprefix("```")
+        .removesuffix("```")
+        .strip()
+    )
+
     try:
-        content = response.choices[0].message.content
-        parsed = eval(content)
-        return parsed #json.loads(response.choices[0].message.content.strip())
-    except Exception as e:
+        return json.loads(cleaned)
+    except json.JSONDecodeError as e:
+        print("[ERROR] JSON decode failed on cleaned LLM output:")
+        print(cleaned)
         raise HTTPException(status_code=500, detail=f"JSON parsing failed: {str(e)}")
