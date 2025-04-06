@@ -42,7 +42,7 @@ export default function GraphView({ data }: { data: GraphData }) {
           }}
         />
         {data.edges && (
-        <div style={{ marginTop: '2rem' }}>
+        <div className="container" style={{ marginTop: '2rem' }}>
           <h3>Interaction Quotes & Sentiments</h3>
           {data.edges.map((edge, i) => (
             <div key={i} style={{ marginBottom: '1rem' }}>
