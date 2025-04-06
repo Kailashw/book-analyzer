@@ -41,8 +41,7 @@ export default function GraphView({ data }: { data: GraphData }) {
             ctx.fillText(label, node.x! + 8, node.y! + 8);
           }}
         />
-      </div>
-      {data.edges && (
+        {data.edges && (
         <div style={{ marginTop: '2rem' }}>
           <h3>Interaction Quotes & Sentiments</h3>
           {data.edges.map((edge, i) => (
@@ -57,6 +56,7 @@ export default function GraphView({ data }: { data: GraphData }) {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }
