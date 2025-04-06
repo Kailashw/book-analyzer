@@ -55,7 +55,7 @@ docker run -p 8000:8000 --env-file .env gutenberg-backend
 ```
 Make sure your .env contains:
 ```bash
-OPENAI_API_KEY=your_openai_key_here
+GROQ_API_KEY=your_groq_key_here
 ```
 
 ### 💻 3. Frontend (React)
